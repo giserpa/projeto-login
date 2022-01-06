@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+body, input{
+    font-family: 'Ubuntu', sans-serif;
+}
+.container{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-color: white;
+    overflow: hidden;
+}
+.container:before{
+    content: '';
+    position: absolute;
+    width: 2000px;
+    height: 2000px;
+    border-radius: 50%;
+    background: linear-gradient(-45deg, rgb(4, 74, 155), rgb(6, 163, 253));
+    top: -10%;
+    right: 48%;
+    transform: translateY(-50%);
+    z-index: 6;
+    transition: 1.8s ease-in-out;
+}
+.forms-container{
+    position: absolute;
+    width:100% ;
+    height: 100%;
+    top:0;
+    left: 0;
+}
+.login-cadastro{
+    position: absolute;
+    top: 50%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    display: grid;
+    grid-template-columns: 1fr;
+    z-index: 5;
+    transition: 1s 0.7s ease-in-out;
+}
+form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction:column ;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    padding:0 5rem;
+    overflow: hidden;
+    transition:0.2s 0.7s ease-in-out ;
+
+}
+.login-form{
+    z-index: 2;
+}
+.cadastro-form{
+    z-index: 1;
+    opacity: 0;
+}
+.title{
+    font-size: 2.2rem;
+    color: rgb(8, 110, 168);
+    margin-bottom: 15px;
+}
+.input-field{
+    max-width: 380px;
+    width: 100%;
+    height: 55px;
+    background-color: rgb(212, 207, 207);
+    margin: 10px 0;
+    border-radius: 55px;
+    display: grid;
+    grid-template-columns: 15% 85%;
+    padding: 0 .4rem;
+}
+.input-field i{
+    text-align: center;
+    line-height: 55px;
+    color: rgb(7, 66, 121);
+    font-size: 1.1rem;
+
+}
+.input-field input{
+    background: none;
+    outline: none;
+    border: none;
+    line-height: 1;
+    font-weight: 600;
+    font-size: 1.1rem;  
+}
+.input-field input::placeholder{
+    color:lightgrey;
+    font-weight: 500;
+}
+.btn{
+    width: 150px;
+    height: 50px;
+    border: none;
+    outline: none;
+    border-radius: 49px;
+    cursor: pointer;
+    background-color: rgb(17, 141, 218);
+    color: white;
+    text-transform: uppercase;
+    margin: 10px 0;
+    transition: 0.5s;
+
+}
+.btn:hover{
+    background-color: rgb(6, 63, 148); 
+}
+.text-social{
+    padding: 0.7rem 0;
+    font-size: 1rem;
+}
+.rede-social{
+    display: flex;
+    justify-content: center;
+}
+.icones-social{
+    height: 46px;
+    width: 46px;
+    border: 1px solid #333;
+    margin: 0 0.45rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: rgb(89, 90, 94);
+    font-size: 1.1rem;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+.icones-social:hover{
+    color: rgb(233, 157, 16);
+    border-color:rgb(233, 157, 16);
+}
+.painel-container{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.painel{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+    text-align: center;
+    z-index: 7;
+}
+.painel .content{
+    color: whitesmoke;
+    transition: .9s .6s ease-in-out;
+}
+.painel h3{
+    font-weight: 600;
+    line-height: 1;
+    font-size: 1.5rem;   
+}
+.painel p{
+    font-size: 0.95rem;
+    padding: 0.7rem 0;
+}
+.left-painel{
+    padding: 3rem 17% 2rem 12%;
+    pointer-events: all;
+}
+.right-painel{
+    padding: 3rem 12% 2rem 17%;
+    pointer-events: none;
+}
+.btn .transparent{
+    margin: 0;
+    background: none;
+    border:2px solid white;
+    width: 130px;
+    height: 41px;
+    font-weight: 600;
+    font-size: 0.8rem;
+
+
+}
+.image{
+    width: 100%;
+    transition: .9s .6s ease-in-out;
+}
+.right-painel .content, .right-painel .image{
+    transform: translateX(800px);
+}
+/* animação */
+
+.container.inscrevase-mode:before{
+    transform: translate(100%, -50%);
+    right: 52%;
+}
+.container.inscrevase-mode .left-painel .image,
+.container.inscrevase-mode .left-painel .content{
+    transform: translateX(-800px);
+}
+.container.inscrevase-mode .painel.right-painel.right-painel .image,
+.container.inscrevase-mode .painel.right-painel .content{
+transform: translateX(0px);
+}
+.container.inscrevase-mode .left-painel{
+    pointer-events: none;
+}
+.container.inscrevase-mode .right-painel{
+    pointer-events: all;
+}
+.container.inscrevase-mode .login-cadastro{
+    left: 25%;
+}
+.container.inscrevase-mode form.login-form{
+    z-index: 1;
+    opacity: 0;
+}
+.container.inscrevase-mode form.cadastro-form{
+    z-index: 2;
+    opacity: 1;
+}
+
+/* RESPONSIVIDADE*/
+@media(max-width:870px){
+    .container{
+        min-height: 800px;
+        height: 100vh;
+    }
+    .container:before{
+        width:1500px;
+        height:1500px ;
+        left: 30%;
+        bottom: 68%;
+        transform: translateX(-50%);
+        right: initial;
+        top: initial;
+        transition: 2s ease-in-out;
+    }
+    .login-cadastro{
+        width: 100%;
+        left: 50%;
+        top:95%;
+        transform: translate(-50%, -100% );
+        transition: 1s 0.8s ease-in-out;
+
+    }
+    .painel-container{
+     
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 2fr 1fr;
+    }
+    .painel{
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding: 2.5rem 8%;
+    }
+    .painel .content{
+        padding-right:15% ;
+        transition: 0.9s 0.8s ease-in-out;
+    }
+    .painel h3{
+        font-size:1.2rem ;
+    }
+    .painel p{
+        font-size: 0.9rem;
+        padding: 0.7rem 0;
+    }
+    .btn .transparent{
+        width: 110px;
+        height: 40px;
+        font-size: 0.7rem;
+    }
+    .image{
+        width:200px ;
+        transition: 0.9s 0.6s ease-in-out;
+    }
+    .left-painel{
+        grid-row: 1 / 2;
+    }
+    .painel.right-painel{
+        grid-row: 3 / 4;
+    }
+    .painel .right-painel .content, .painel.right-painel .image{
+        transform: translateY(300px);
+    }
+    .container.inscrevase-mode:before{
+        transform: translate(-50%, 100%);
+        bottom: 30px;
+        right: initial;
+    }
+    .container.inscrevase-mode .left-painel .image,
+    .container.inscrevase-mode .left-painel .content{
+        transform: translateY(-300px);
+    }
+    .container.inscrevase-mode .login-cadastro{
+        top:5%;
+        transform: translate(-50%, 0);
+        left: 50%;
+    }
+}
+@media(max-width: 570px){
+    form{
+        padding: 0 1.5rem;
+    }
+    .image{
+        display: none;
+    }
+    .painel .content{
+        padding: 0.5rem 1rem;
+    }
+    .container:before{
+        bottom: 72%;
+        left: 50%; 
+    }
+    .container.inscrevase-mode:before{
+        bottom: 32%;
+        left: 50%;
+    }
+    #login_btn{
+        background-color: rgb(233, 233, 241);
+        color:rgb(4, 63, 139)
+    }
+}
